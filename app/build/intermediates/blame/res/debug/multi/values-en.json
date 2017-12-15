@@ -1,0 +1,64 @@
+[
+    {
+        "outputFile": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\exploded-aar\\com.github.CymChad\\BaseRecyclerViewAdapterHelper\\2.9.22\\res\\values-en\\values-en.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 49,
+                        "endOffset": 100
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 56,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\exploded-aar\\com.github.CymChad\\BaseRecyclerViewAdapterHelper\\2.9.22\\res\\values-en\\values-en.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 105,
+                        "endColumn": 56,
+                        "endOffset": 157
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 162,
+                    "endColumn": 46,
+                    "endOffset": 204
+                },
+                "from": {
+                    "file": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\exploded-aar\\com.github.CymChad\\BaseRecyclerViewAdapterHelper\\2.9.22\\res\\values-en\\values-en.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 162,
+                        "endColumn": 46,
+                        "endOffset": 204
+                    }
+                }
+            }
+        ]
+    }
+]

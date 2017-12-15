@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\eye1_1.png",
+        "source": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\src\\main\\res\\mipmap-xhdpi\\eye1_1.png"
+    },
+    {
+        "merged": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\bodya1_0.png",
+        "source": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\src\\main\\res\\mipmap-xhdpi\\bodya1_0.png"
+    },
+    {
+        "merged": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\bodyb1_0.png",
+        "source": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\src\\main\\res\\mipmap-xhdpi\\bodyb1_0.png"
+    },
+    {
+        "merged": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\eye1_0.png",
+        "source": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\src\\main\\res\\mipmap-xhdpi\\eye1_0.png"
+    },
+    {
+        "merged": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\bodya1_1.png",
+        "source": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\src\\main\\res\\mipmap-xhdpi\\bodya1_1.png"
+    },
+    {
+        "merged": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\bodyb1_1.png",
+        "source": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\src\\main\\res\\mipmap-xhdpi\\bodyb1_1.png"
+    }
+]

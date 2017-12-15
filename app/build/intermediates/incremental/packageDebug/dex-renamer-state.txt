@@ -1,0 +1,4 @@
+#Thu Dec 14 17:40:20 CST 2017
+base.0=E\:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=E\:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

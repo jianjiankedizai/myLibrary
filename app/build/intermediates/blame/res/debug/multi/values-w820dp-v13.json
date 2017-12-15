@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "E:\\wcj_space\\EasyAR_SDK_2.1.0_Basic_Samples_Android_2017-09-08\\HelloAR\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 291,
+                        "endColumn": 57,
+                        "endOffset": 344
+                    }
+                }
+            }
+        ]
+    }
+]
