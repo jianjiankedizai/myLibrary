@@ -3,6 +3,8 @@ package src.com.view;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -49,21 +51,24 @@ public class ViewPagerAdapter<T extends List<IModel>> extends PagerAdapter {
             });
 
 
-            final SwipeRefreshRecycleView swipeRefreshRecycleView = new SwipeRefreshRecycleView(context);
+            final SwipeRefreshLayout swipeRefreshLayout = new SwipeRefreshLayout(context);
+            final RecyclerView recyclerView = new RecyclerView(context);
+            recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            swipeRefreshLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            swipeRefreshLayout.addView(recyclerView);
 
-            swipeRefreshRecycleView.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
-                    swipeRefreshRecycleView.swipeRefreshLayout.setRefreshing(false);
+                    swipeRefreshLayout.setRefreshing(false);
                     if (requestChangeDataListener != null)
                         requestChangeDataListener.onRefresh(baseQuickAdapter, finalI);
 
                 }
             });
-
-
-            swipeRefreshRecycleView.setAdapter(baseQuickAdapter);
-            viewList.add(swipeRefreshRecycleView);
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setAdapter(baseQuickAdapter);
+            viewList.add(swipeRefreshLayout);
         }
 
 
@@ -85,7 +90,6 @@ public class ViewPagerAdapter<T extends List<IModel>> extends PagerAdapter {
     public void setRequestChangeDataListener(RequestChangeDataListener requestChangeDataListener) {
         this.requestChangeDataListener = requestChangeDataListener;
     }
-
 
 
     public interface OnBindItemDataListener {
