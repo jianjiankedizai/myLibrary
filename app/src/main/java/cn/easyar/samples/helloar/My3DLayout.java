@@ -5,6 +5,7 @@ import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -68,7 +69,7 @@ public class My3DLayout extends FrameLayout {
         mGLView = new GLSurfaceView(context);
         mGLView.setEGLContextClientVersion(2);
         mGLView.setPreserveEGLContextOnPause(true);
-        mGLView.setEGLConfigChooser( 8, 8, 8, 8, 16, 0 );
+        mGLView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
         mGLView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
 
         renderer = new MyRenderer();
@@ -167,6 +168,7 @@ public class My3DLayout extends FrameLayout {
 
                 }
                 mainObj.setRotationPivot(SimpleVector.ORIGIN);
+                mainObj.translate(0, 0, 20);
 
                 Camera cam = world.getCamera();
                 cam.moveCamera(Camera.CAMERA_MOVEOUT, 15);
@@ -204,35 +206,54 @@ public class My3DLayout extends FrameLayout {
 
     private float lastY = 0;
     private float lastX = 0;
+    private double fingerBegainDis;
+    private int firstIndex;
+    private int secondIndex;
 
-    public boolean onTouchEvent(MotionEvent me) {
-        if (mainObj == null) return super.onTouchEvent(me);
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getPointerCount() > 2) return true;
+        if (mainObj == null) return super.onTouchEvent(event);
+        int action = MotionEventCompat.getActionMasked(event);
+        if (action == MotionEvent.ACTION_POINTER_DOWN) {
+            secondIndex = event.getActionIndex();
+            fingerBegainDis = getFingerDistance(event, firstIndex, secondIndex);
+            return true;
+        }
 
-        if (me.getAction() == MotionEvent.ACTION_DOWN) {
+
+        if (action == MotionEvent.ACTION_DOWN) {
             lastY = 0;
             lastX = 0;
-            Camera camera = world.getCamera();
+            firstIndex = event.getActionIndex();
             return true;
         }
 
-        if (me.getAction() == MotionEvent.ACTION_UP) {
+        if (action == MotionEvent.ACTION_UP) {
             return true;
         }
 
-        if (me.getAction() == MotionEvent.ACTION_MOVE) {
-            float rawX = me.getRawX();
-            float rawY = me.getRawY();
-            float dx = rawX - lastX;
-            float dy = rawY - lastY;
-            if (lastX == 0) dx = 0;
-            if (lastY == 0) dy = 0;
+        if (action == MotionEvent.ACTION_MOVE) {
+            if (event.getPointerCount() == 1) {
+                float rawX = event.getRawX();
+                float rawY = event.getRawY();
+                float dx = rawX - lastX;
+                float dy = rawY - lastY;
+                if (lastX == 0) dx = 0;
+                if (lastY == 0) dy = 0;
 
-            mainObj.rotateX((float) (-Math.PI * dy / 360));
-            mainObj.rotateY((float) (-Math.PI * dx / 360));
-//            camera.rotateCameraZ((float) (Math.PI / 180));
-            lastY = rawY;
-            lastX = rawX;
+                mainObj.rotateX((float) (-Math.PI * dy / 360));
+                mainObj.rotateY((float) (-Math.PI * dx / 360));
+                lastY = rawY;
+                lastX = rawX;
+            } else if (event.getPointerCount() == 2) {
+                double currDis = getFingerDistance(event, firstIndex, secondIndex);
+                if (fingerBegainDis == 0) return true;
+                float absScale = (float) (currDis / fingerBegainDis);
+                if (absScale < 0.2f) absScale = 0.2f;
+                else if (absScale > 3f) absScale = 3f;
+                mainObj.setScale(absScale);
 
+            }
 
             return true;
         }
@@ -242,7 +263,13 @@ public class My3DLayout extends FrameLayout {
             // No need for this...
         }
 
-        return super.onTouchEvent(me);
+        return super.onTouchEvent(event);
+    }
+
+    private double getFingerDistance(MotionEvent event, int firstIndex, int secondIndex) {
+        double pow = Math.pow(Math.pow((event.getX(firstIndex) - event.getX(secondIndex)), 2f) +
+                Math.pow((event.getY(firstIndex) - event.getY(secondIndex)), 2f), 0.5f);
+        return pow;
     }
 
 

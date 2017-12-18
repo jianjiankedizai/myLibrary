@@ -21,7 +21,7 @@ public class UserTest implements IModel {
 
     @Override
     public String getTitle() {
-        return "diyigehoaba";
+        return "diyige";
     }
 
     @Override
