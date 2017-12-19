@@ -1,7 +1,6 @@
 package cn.easyar.samples.helloar;
 
 import android.content.Context;
-import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -70,7 +69,7 @@ public class My3DLayout extends FrameLayout {
         mGLView.setEGLContextClientVersion(2);
         mGLView.setPreserveEGLContextOnPause(true);
         mGLView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-        mGLView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
+//        mGLView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
 
         renderer = new MyRenderer();
         mGLView.setRenderer(renderer);
@@ -86,10 +85,6 @@ public class My3DLayout extends FrameLayout {
 
     public void onResume() {
         mGLView.onResume();
-    }
-
-    public void onStop() {
-        System.exit(0);
     }
 
 

@@ -20,7 +20,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 
 import java.util.HashMap;
 
@@ -48,20 +47,9 @@ public class MainActivity extends AppCompatActivity {
         if (!Engine.initialize(this, key)) {
             Log.e("HelloAR", "Initialization Failed.");
         }
-
-
-        My3DLayout my3DLayout = new My3DLayout(this);
-        ObjData objData = new ObjData();
-        objData.setObj("0.obj");
-        objData.setMtl("0.mtl");
-
-
-        my3DLayout.setObjResorse(objData);
-        setContentView(my3DLayout, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        glView = new GLView(this);
         addContentView(glView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
-
-        glView = new GLView(this);
 
         requestCameraPermission(new PermissionCallback() {
             @Override

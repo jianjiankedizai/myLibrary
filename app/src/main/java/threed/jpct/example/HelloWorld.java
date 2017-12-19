@@ -61,11 +61,4 @@ public class HelloWorld extends Activity {
         my3DLayout.onResume();
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        my3DLayout.onStop();
-    }
-
-
 }

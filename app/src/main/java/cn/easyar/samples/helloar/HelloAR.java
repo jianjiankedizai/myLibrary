@@ -51,7 +51,6 @@ public class HelloAR {
     private Vec2I view_size = new Vec2I(0, 0);
     private int rotation = 0;
     private Vec4I viewport = new Vec4I(0, 0, 1280, 720);
-    private boolean first = true;
 
     public HelloAR(Context context, ImageData imageData) {
         this.context = context;
@@ -257,6 +256,7 @@ public class HelloAR {
                 videobg_renderer.render(frame, viewport);
             }
 
+
             for (TargetInstance targetInstance : frame.targetInstances()) {
                 int status = targetInstance.status();
                 if (status == TargetStatus.Tracked) {
@@ -267,14 +267,10 @@ public class HelloAR {
                     }
                     if (box_renderer != null) {
 
-                        if (first) {
-                            first = false;
 
-                            Intent intent = new Intent(context, HelloWorld.class);
-                            context.startActivity(intent);
+                        Intent intent = new Intent(context, HelloWorld.class);
+                        context.startActivity(intent);
 //                            ((Activity) context).finish();
-
-                        }
 
 
                     }
