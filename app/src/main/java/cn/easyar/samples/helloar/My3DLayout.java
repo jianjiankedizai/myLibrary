@@ -168,7 +168,7 @@ public class My3DLayout extends FrameLayout {
 
                 }
                 mainObj.setRotationPivot(SimpleVector.ORIGIN);
-                mainObj.translate(0, 0, 20);
+                mainObj.translate(0, 5, 20);
 
                 Camera cam = world.getCamera();
                 cam.moveCamera(Camera.CAMERA_MOVEOUT, 15);
@@ -207,16 +207,15 @@ public class My3DLayout extends FrameLayout {
     private float lastY = 0;
     private float lastX = 0;
     private double fingerBegainDis;
-    private int firstIndex;
-    private int secondIndex;
+    private float currentScale = 1;
 
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getPointerCount() > 2) return true;
         if (mainObj == null) return super.onTouchEvent(event);
         int action = MotionEventCompat.getActionMasked(event);
         if (action == MotionEvent.ACTION_POINTER_DOWN) {
-            secondIndex = event.getActionIndex();
-            fingerBegainDis = getFingerDistance(event, firstIndex, secondIndex);
+            fingerBegainDis = getFingerDistance(event);
+            currentScale = mainObj.getScale();
             return true;
         }
 
@@ -224,7 +223,6 @@ public class My3DLayout extends FrameLayout {
         if (action == MotionEvent.ACTION_DOWN) {
             lastY = 0;
             lastX = 0;
-            firstIndex = event.getActionIndex();
             return true;
         }
 
@@ -246,9 +244,9 @@ public class My3DLayout extends FrameLayout {
                 lastY = rawY;
                 lastX = rawX;
             } else if (event.getPointerCount() == 2) {
-                double currDis = getFingerDistance(event, firstIndex, secondIndex);
+                double currDis = getFingerDistance(event);
                 if (fingerBegainDis == 0) return true;
-                float absScale = (float) (currDis / fingerBegainDis);
+                float absScale = (float) (currDis * currentScale / fingerBegainDis);
                 if (absScale < 0.2f) absScale = 0.2f;
                 else if (absScale > 3f) absScale = 3f;
                 mainObj.setScale(absScale);
@@ -266,9 +264,9 @@ public class My3DLayout extends FrameLayout {
         return super.onTouchEvent(event);
     }
 
-    private double getFingerDistance(MotionEvent event, int firstIndex, int secondIndex) {
-        double pow = Math.pow(Math.pow((event.getX(firstIndex) - event.getX(secondIndex)), 2f) +
-                Math.pow((event.getY(firstIndex) - event.getY(secondIndex)), 2f), 0.5f);
+    private double getFingerDistance(MotionEvent event) {
+        double pow = Math.pow(Math.pow((event.getX(0) - event.getX(1)), 2f) +
+                Math.pow((event.getY(0) - event.getY(1)), 2f), 0.5f);
         return pow;
     }
 
